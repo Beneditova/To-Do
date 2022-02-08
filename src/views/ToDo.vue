@@ -70,7 +70,7 @@
             </div>
             <div class="col-md-1">
                               <button
-                @click="delete_ToDo(index)"
+                @click="deleteToDo(index)"
                 class="deleteButton"
               >
                Премахни
@@ -120,12 +120,12 @@ export default {
       existingTasks.push({ todo: this.todo, done: false });
       localStorage.setItem("allToDo", JSON.stringify(existingTasks));
     },
-    delete_ToDo(index) {
-      this.ToDo_list.splice(index, 1);
-      localStorage.setItem("allToDo", JSON.stringify(this.ToDo_list));
-    },
     doneTodo(todo) {
         todo.done = !todo.done;
+    },
+    deleteToDo(index) {
+      this.ToDo_list.splice(index, 1);
+      localStorage.setItem("allToDo", JSON.stringify(this.ToDo_list));
     },
   },
 };
